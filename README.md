@@ -205,5 +205,4 @@ By the end of this setup, the environment should support:
 | VM CPU | 2 cores |
 | Disk | 70 GB SCSI |
 | ADB version | 1.0.39 (1:8.1.0+r23-5) |
-| NAT IP | 192.168.18.137 |
 | Snapshot | `CLEAN_BASELINE_TP1` |
