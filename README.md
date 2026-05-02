@@ -37,7 +37,7 @@ Get-FileHash .\Mobexler.ova -Algorithm SHA256
 sha256sum Mobexler.ova
 ```
 
-![SHA256 hash verification in PowerShell](lab1/1.png)
+![SHA256 hash verification in PowerShell](1.png)
 
 The hash output should match the value published on the official page. This rules out corrupted downloads (network drops, proxy interference) and confirms the image is exactly the expected version before importing.
 
@@ -59,7 +59,7 @@ Import the OVA via **File → Open** or drag-and-drop, then configure two networ
 | Network Adapter 1 | NAT | Internet access (updates, tools) |
 | Network Adapter 2 | Host-Only / Bridged | Isolated lab network for Android target |
 
-![Mobexler VM settings in VMware — 4 GB RAM, 2 CPUs, dual adapters](lab1/2.png)
+![Mobexler VM settings in VMware — 4 GB RAM, 2 CPUs, dual adapters](2.png)
 
 > **VirtualBox alternative:** File → Import Appliance → select the OVA. Then VM → Settings → Network to configure the two adapters. If the Host-Only network isn't listed: Tools → Network Manager → Host-Only Networks → Create.
 
@@ -74,7 +74,7 @@ Start the VM and log in with the default credentials:
 | Username | `mobexler` |
 | Password | `mobexler` |
 
-![Mobexler login screen](lab1/3.png)
+![Mobexler login screen](3.png)
 
 ---
 
@@ -100,7 +100,7 @@ ping -c 2 8.8.8.8      # Layer 3 reachability
 ping -c 2 google.com   # DNS resolution
 ```
 
-![ip a, ip route, and ping results showing successful connectivity](lab1/4.png)
+![ip a, ip route, and ping results showing successful connectivity](4.png)
 
 | Result | Diagnosis | Fix |
 |---|---|---|
@@ -128,7 +128,7 @@ Before installing any tools, injecting certificates, or configuring a proxy, cre
 | Name | `CLEAN_BASELINE_TP1` |
 | Description | `Import OK — NAT+HostOnly OK — Boot OK — Ready ADB` |
 
-![VMware snapshot dialog with CLEAN_BASELINE_TP1](lab1/5.png)
+![VMware snapshot dialog with CLEAN_BASELINE_TP1](5.png)
 
 This snapshot is the safety net for all subsequent labs. Any TP can modify Mobexler's state — SSL certificates, Burp proxy config, installed tools. Restoring this snapshot brings the system back to a guaranteed clean state in seconds, without reimporting the entire OVA.
 
@@ -177,7 +177,7 @@ adb connect 192.168.56.101:5555
 adb devices
 ```
 
-![adb devices and adb version output — ADB 1.0.39 daemon started successfully](lab1/6.png)
+![adb devices and adb version output — ADB 1.0.39 daemon started successfully](6.png)
 
 **Checklist (both options):**
 - [ ] `adb devices` shows at least one device in `device` state (not `unauthorized` or empty)
